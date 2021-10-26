@@ -1,0 +1,69 @@
+#Foosha
+
+# DHCP config for eth0
+auto eth0
+iface eth0 inet dhcp
+
+# Static config for eth1
+auto eth1
+iface eth1 inet static
+	address 192.212.1.1
+	netmask 255.255.255.0
+
+# Static config for eth2
+auto eth2
+iface eth2 inet static
+	address 192.212.2.1
+	netmask 255.255.255.0
+
+
+#Switch1
+
+
+#Switch2
+
+
+#Loguetown
+
+# Static config for eth0
+auto eth0
+iface eth0 inet static
+	address 192.212.1.2
+	netmask 255.255.255.0
+	gateway 192.212.1.1
+
+#Alabasta
+
+# Static config for eth0
+auto eth0
+iface eth0 inet static
+	address 192.212.1.3
+	netmask 255.255.255.0
+	gateway 192.212.1.1
+
+#Enieslobby
+
+# Static config for eth0
+auto eth0
+iface eth0 inet static
+	address 192.212.2.2
+	netmask 255.255.255.0
+	gateway 192.212.2.1
+
+#Water7
+
+# Static config for eth0
+auto eth0
+iface eth0 inet static
+	address 192.212.2.3
+	netmask 255.255.255.0
+	gateway 192.212.2.1
+
+#Skypie
+
+# Static config for eth0
+auto eth0
+iface eth0 inet static
+	address 192.212.2.4
+	netmask 255.255.255.0
+	gateway 192.212.2.1
