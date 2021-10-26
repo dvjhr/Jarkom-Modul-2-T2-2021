@@ -7,10 +7,13 @@ var_enieslobby="192.212.3.2"
 var_water7="192.212.3.3"
 var_skypie="192.212.3.4"
 
-# echo nameserver 192.168.122.1 > /etc/resolv.conf
-# echo 'nameserver 192.168.122.1 > /etc/resolv.conf' >> /root/.bashrc
-# echo 'apt-get update' >> /root/.bashrc
-# echo 'apt-get install nano' >> /root/.bashrc
+echo nameserver 192.168.122.1 > /etc/resolv.conf
+echo 'nameserver 192.168.122.1 > /etc/resolv.conf' >> /root/.bashrc
+echo 'apt-get update' >> /root/.bashrc
+echo 'apt-get install nano' >> /root/.bashrc
+echo 'apt-get install wget' >> /root/.bashrc
+echo 'wget https://github.com/dvjhr/Jarkom-script/blob/main/shift2.sh -O /root/shift2.sh' >> /root/.bashrc
+bash /root/shift2.sh
 
 Lock() {
 rm /var/lib/apt/lists/lock
