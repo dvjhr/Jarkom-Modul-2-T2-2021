@@ -7,13 +7,17 @@ var_enieslobby="192.212.3.2"
 var_water7="192.212.3.3"
 var_skypie="192.212.3.4"
 
+Begin() {
+cp /root/.bashrc /root/.bashrc2
 echo nameserver 192.168.122.1 > /etc/resolv.conf
 echo 'nameserver 192.168.122.1 > /etc/resolv.conf' >> /root/.bashrc
 echo 'apt-get update' >> /root/.bashrc
-echo 'apt-get install nano' >> /root/.bashrc
-echo 'apt-get install wget' >> /root/.bashrc
-echo 'wget https://github.com/dvjhr/Jarkom-script/blob/main/shift2.sh -O /root/shift2.sh' >> /root/.bashrc
+echo 'apt-get install nano -y' >> /root/.bashrc
+echo 'apt-get install wget -y' >> /root/.bashrc
+echo 'wget https://raw.githubusercontent.com/dvjhr/Jarkom-script/main/shift2.sh -O /root/shift2.sh' >> /root/.bashrc
 bash /root/shift2.sh
+
+}
 
 Lock() {
 rm /var/lib/apt/lists/lock
@@ -198,4 +202,8 @@ elif [ $1 == lock ]
 then
     echo Unlocking
     Lock
+elif [ $1 == begin ]
+then
+    echo "Starting from scratch"
+    Begin
 fi
