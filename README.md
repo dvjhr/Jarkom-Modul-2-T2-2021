@@ -2,8 +2,8 @@
 ### Laporan Resmi Pengerjaan Sesi Lab Jaringan Komputer     
         
 #### Nama Anggota Kelompok :      
-2. Herwinda Marwa S (05311940000009)     
-1. Dian Arofati Z (05311940000011)
+1. Herwinda Marwa S (05311940000009)     
+2. Dian Arofati Z (05311940000011)
 3. Dava Aditya Jauhar (05311940000030)      
       
 ## Pembukaan Soal         
