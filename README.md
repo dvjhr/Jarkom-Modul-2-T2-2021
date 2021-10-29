@@ -1,5 +1,5 @@
-# Lapres Modul 1 Jarkom 2021 - T2
-Laporan Hasil Praktikum Modul 1 Jarkom 2021
+# Lapres Modul 2 Jarkom 2021 - T2
+Laporan Hasil Praktikum Modul 2 Jarkom 2021
 
 Kelompok T2
   * Herwinda Marwaa Salsabila (05311940000009)
