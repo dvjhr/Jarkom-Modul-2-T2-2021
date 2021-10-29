@@ -159,12 +159,12 @@ zone "franky.ti2.com" {
         file "/etc/bind/kaizoku/franky.ti2.com";  
 };
 
-zone "2.45.10.in-addr.arpa" {
+zone "2.212.291.in-addr.arpa" {
         type master;
-        file "/etc/bind/kaizoku/2.45.10.in-addr.arpa";
+        file "/etc/bind/kaizoku/2.212.291.in-addr.arpa";
 };
 ```  
-dan lakukan konfigurasi pada file `/etc/bind/kaizoku/2.45.10.in-addr.arpa` seperti berikut ini:  
+dan lakukan konfigurasi pada file `/etc/bind/kaizoku/2.212.291.in-addr.arpa` seperti berikut ini:  
 ```  
 $TTL    604800  
 @       IN      SOA     franky.ti2.com. root.franky.ti2.com. (
@@ -174,7 +174,7 @@ $TTL    604800
                         2419200         ; Expire
                         604800 )       ; Negative Cache TTL
 ;
-2.45.10.in-addr.arpa.   IN      NS      franky.ti2.com.
+2.212.291.in-addr.arpa.   IN      NS      franky.ti2.com.
 2                       IN      PTR     franky.ti2.com.
 ```  
   
@@ -196,9 +196,9 @@ zone "franky.ti2.com" {
         file "/etc/bind/kaizoku/franky.ti2.com";
 };
   
-zone "2.45.10.in-addr.arpa" {
+zone "2.212.291.in-addr.arpa" {
         type master;
-        file "/etc/bind/kaizoku/2.45.10.in-addr.arpa";
+        file "/etc/bind/kaizoku/2.212.291.in-addr.arpa";
 };
 ```  
 Melakukan restart sevice bind9 dengan `service bind9 restart`  
@@ -262,9 +262,9 @@ zone "franky.ti2.com" {
         file "/etc/bind/kaizoku/franky.ti2.com";
 };
 
-zone "2.45.10.in-addr.arpa" {
+zone "2.212.291.in-addr.arpa" {
         type master;
-        file "/etc/bind/kaizoku/2.45.10.in-addr.arpa";
+        file "/etc/bind/kaizoku/2.212.291.in-addr.arpa";
 };
 ```
 Melakukan restart sevice bind9 dengan `service bind9 restart`  
