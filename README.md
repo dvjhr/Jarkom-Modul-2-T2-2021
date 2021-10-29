@@ -1,12 +1,13 @@
-# Jarkom-Modul-2-T02-2021      
-### Laporan Resmi Pengerjaan Sesi Lab Jaringan Komputer     
-        
-#### Nama Anggota Kelompok :      
-1. Herwinda Marwa S (05311940000009)     
-2. Dian Arofati Z (05311940000011)
-3. Dava Aditya Jauhar (05311940000030)      
+# Lapres Modul 1 Jarkom 2021 - T2
+Laporan Hasil Praktikum Modul 1 Jarkom 2021
+Kelompok T2
+  * Herwinda Marwaa Salsabila (05311940000009)
+  * Dian Arofati N. Z. (05311940000011)
+  * Dava Aditya Jauhar (05311940000030)
+
+---    
       
-## Pembukaan Soal         
+## Awalan soal      
 Luffy adalah seorang yang akan jadi Raja Bajak Laut. Demi membuat Luffy menjadi Raja Bajak Laut, Nami ingin membuat sebuah peta, bantu Nami untuk membuat peta berikut:    
 (nanti masukin gambar)
 
