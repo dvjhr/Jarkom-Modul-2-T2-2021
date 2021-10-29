@@ -1,5 +1,6 @@
 # Lapres Modul 1 Jarkom 2021 - T2
 Laporan Hasil Praktikum Modul 1 Jarkom 2021
+
 Kelompok T2
   * Herwinda Marwaa Salsabila (05311940000009)
   * Dian Arofati N. Z. (05311940000011)
@@ -13,7 +14,7 @@ Luffy adalah seorang yang akan jadi Raja Bajak Laut. Demi membuat Luffy menjadi 
 
 EniesLobby akan dijadikan sebagai DNS Master, Water7 akan dijadikan DNS Slave, dan Skypie akan digunakan sebagai Web Server. Terdapat 2 Client yaitu Loguetown, dan Alabasta. Semua node terhubung pada router Foosha, sehingga dapat mengakses internet      
          
-## Jawaban Modul          
+## Jawaban          
          
 ### Soal 1         
 EniesLobby akan dijadikan sebagai DNS Master, Water7 akan dijadikan DNS Slave, dan Skypie akan digunakan sebagai Web Server. Terdapat 2 Client yaitu Loguetown, dan Alabasta. Semua node terhubung pada router Foosha, sehingga dapat mengakses internet       
@@ -63,25 +64,25 @@ Luffy ingin menghubungi Franky yang berada di EniesLobby dengan denden mushi. Ka
 **Server EniesLobby**  
 Melakukan konfigurasi terhadap file  `/etc/bind/named.conf.local` dengan menambahkan  
 ```
-zone "franky.t02.com" {  
+zone "franky.ti2.com" {  
         type master;  
-        file "/etc/bind/kaizoku/franky.t02.com";
+        file "/etc/bind/kaizoku/franky.ti2.com";
 };
 ```  
 Membuat direktori baru yaitu `/etc/bind/kaizoku`  
-Menambahkan konfigurasi pada `/etc/bind/kaizoku/franky.t02.com`  
+Menambahkan konfigurasi pada `/etc/bind/kaizoku/franky.ti2.com`  
 ```
 $TTL    604800  
-@       IN      SOA     franky.t02.com. root.franky.t02.com. (
+@       IN      SOA     franky.ti2.com. root.franky.ti2.com. (
                         2021100401      ; Serial
                         604800          ; Refresh
                         86400           ; Retry
                         2419200         ; Expire
                         604800 )        ; Negative Cache TTL
 ;
-@               IN      NS      franky.t02.com.
+@               IN      NS      franky.ti2.com.
 @               IN      A       192.212.2.2 ; IP EniesLobby
-www             IN      CNAME   franky.t02.com.
+www             IN      CNAME   franky.ti2.com.
 
 ```
 Melakukan restart service bind9 dengan `service bind9 restart`  
@@ -94,11 +95,11 @@ echo "nameserver 192.212.2.2" > /etc/resolv.conf
 ```  
 
 #### TESTING  
-ping franky.t02.com
+ping franky.ti2.com
 
 (nanti masukin gambar)
 
-ping www.franky.t02.com
+ping www.franky.ti2.com
 (nanti masukin gambar)
 
 host -t CNAME www.franky.com
@@ -110,39 +111,39 @@ Setelah itu buat subdomain `super.franky.yyy.com` dengan alias `www.super.franky
   
 ### Jawaban Soal 3  
 **Server EniesLobby**  
-Melakukan Edit pada file `/etc/bind/kaizoku/franky.t02.com` menjadi seperti berikut:  
+Melakukan Edit pada file `/etc/bind/kaizoku/franky.ti2.com` menjadi seperti berikut:  
 ```  
 $TTL    604800  
-@       IN      SOA     franky.t02.com. root.franky.t02.com. (  
+@       IN      SOA     franky.ti2.com. root.franky.ti2.com. (  
                         2021100401      ; Serial
                         604800          ; Refresh
                         86400           ; Retry
                         2419200         ; Expire
                         604800 )        ; Negative Cache TTL
 ;
-@               IN      NS      franky.t02.com.
+@               IN      NS      franky.ti2.com.
 @               IN      A       192.212.2.2 ; IP EniesLobby
-www             IN      CNAME   franky.t02.com.
+www             IN      CNAME   franky.ti2.com.
 super           IN      A       192.212.2.4 ; IP skype
-www.super       IN      CNAME   franky.t02.com.
+www.super       IN      CNAME   franky.ti2.com.
 ```
 Melakukan restart sevice bind9 dengan `service bind9 restart`  
   
 #### TESTING  
 
-ping super.franky.t02.com
+ping super.franky.ti2.com
 (nanti masukin gambar)
 
 
-ping www.super.franky.t02.com
+ping www.super.franky.ti2.com
 
 (nanti masukin gambar)
 
-host -t A super.franky.t02.com
+host -t A super.franky.ti2.com
 
 (nanti masukin gambar)
 
-host -t CNAME www.super.franky.t02.com
+host -t CNAME www.super.franky.ti2.com
 (nanti masukin gambar)
 
 ### SOAL 4   
@@ -152,9 +153,9 @@ Buat juga reverse domain untuk domain utama
 **Server EsniesLobby**  
 Edit file `/etc/bind/named.conf.local` menjadi sebagai berikut:  
 ```  
-zone "franky.t02.com" {  
+zone "franky.ti2.com" {  
         type master;  
-        file "/etc/bind/kaizoku/franky.t02.com";  
+        file "/etc/bind/kaizoku/franky.ti2.com";  
 };
 
 zone "2.45.10.in-addr.arpa" {
@@ -165,15 +166,15 @@ zone "2.45.10.in-addr.arpa" {
 dan lakukan konfigurasi pada file `/etc/bind/kaizoku/2.45.10.in-addr.arpa` seperti berikut ini:  
 ```  
 $TTL    604800  
-@       IN      SOA     franky.t02.com. root.franky.t02.com. (
+@       IN      SOA     franky.ti2.com. root.franky.ti2.com. (
                         2021100401      ; Serial
                         604800          ; Refresh
                         86400         ; Retry
                         2419200         ; Expire
                         604800 )       ; Negative Cache TTL
 ;
-2.45.10.in-addr.arpa.   IN      NS      franky.t02.com.
-2                       IN      PTR     franky.t02.com.
+2.45.10.in-addr.arpa.   IN      NS      franky.ti2.com.
+2                       IN      PTR     franky.ti2.com.
 ```  
   
 #### TESTING  
@@ -186,12 +187,12 @@ Supaya tetap bisa menghubungi Franky jika server EniesLobby rusak, maka buat Wat
 **Service Water7**  
 lakukan konfigurasi pada file `/etc/bind/named.conf.local` sebagai berikut untuk melakukan konfigurasi DNS Slave yang mengarah ke water7:  
 ```  
-zone "franky.t02.com" {  
+zone "franky.ti2.com" {  
         type master;
         notify yes;
         also-notify {192.212.2.3;};  //Masukan IP Water7 tanpa tanda petik
         allow-transfer {192.212.2.3;}; // Masukan IP Water7 tanpa tanda petik
-        file "/etc/bind/kaizoku/franky.t02.com";
+        file "/etc/bind/kaizoku/franky.ti2.com";
 };
   
 zone "2.45.10.in-addr.arpa" {
@@ -207,10 +208,10 @@ Melakukan `apt-get update` dan menginstall bind9 dengan cara `apt-get install bi
 Lakukan konfigurasi pada file `/etc/bind/named.conf.local `  
 
 ```
-zone "franky.t02.com" {
+zone "franky.ti2.com" {
         type slave;
         masters { 192.212.2.2; }; // Masukan IP EniesLobby tanpa tanda petik
-        file "/var/lib/bind/franky.t02.com";
+        file "/var/lib/bind/franky.ti2.com";
 };
 ```  
 Melakukan restart sevice bind9 dengan `service bind9 restart`  
@@ -228,21 +229,21 @@ Setelah itu terdapat subdomain `mecha.franky.yyy.com` dengan alias `www.mecha.fr
   
 ### Jawaban Soal 6  
 **Server Enieslobby**  
-Melakukan konfigurasi `/etc/bind/kaizoku/franky.t02.com`  
+Melakukan konfigurasi `/etc/bind/kaizoku/franky.ti2.com`  
 ```
 $TTL    604800
-@       IN      SOA     franky.t02.com. root.franky.t02.com. (
+@       IN      SOA     franky.ti2.com. root.franky.ti2.com. (
                         2021100401      ; Serial
                         604800          ; Refresh
                         86400           ; Retry
                         2419200         ; Expire
                         604800 )        ; Negative Cache TTL
 ;
-@               IN      NS      franky.t02.com.
+@               IN      NS      franky.ti2.com.
 @               IN      A       192.212.2.4 ; IP skypea
-www             IN      CNAME   franky.t02.com.
+www             IN      CNAME   franky.ti2.com.
 super           IN      A       192.212.2.4 ; IP skypea
-www.super       IN      CNAME   super.franky.t02.com.
+www.super       IN      CNAME   super.franky.ti2.com.
 ns1             IN      A       192.212.2.3; IP Water7
 mecha           IN      NS      ns1
 ```  
@@ -252,12 +253,12 @@ allow-query{any;};
 ```  
 Kemudian edit file `/etc/bind/named.conf.local` menjadi seperti  
 ```  
-zone "franky.t02.com" {
+zone "franky.ti2.com" {
         type master;
         //notify yes;
         //also-notify {192.212.2.3;};  Masukan IP Water7 tanpa tanda petik
         allow-transfer {192.212.2.3;}; // Masukan IP Water7 tanpa tanda petik
-        file "/etc/bind/kaizoku/franky.t02.com";
+        file "/etc/bind/kaizoku/franky.ti2.com";
 };
 
 zone "2.45.10.in-addr.arpa" {
@@ -272,39 +273,39 @@ Edit file `/etc/bind/named.conf.options`, comment `dnssec-validation auto;` dan 
 ```  
 allow-query{any;};  
 ```  
-kemudian edit file `/etc/bind/named.conf.local` untuk delegasi `mecha.franky.t02.com`  
+kemudian edit file `/etc/bind/named.conf.local` untuk delegasi `mecha.franky.ti2.com`  
 ```  
-zone "franky.t02.com" {
+zone "franky.ti2.com" {
     type slave;
     masters { 192.212.2.2; }; // Masukan IP EniesLobby tanpa tanda petik
-    file "/var/lib/bind/franky.t02.com";
+    file "/var/lib/bind/franky.ti2.com";
 };  
   
-zone "mecha.franky.t02.com"{  
+zone "mecha.franky.ti2.com"{  
         type master;
-        file "/etc/bind/sunnygo/mecha.franky.t02.com";
+        file "/etc/bind/sunnygo/mecha.franky.ti2.com";
 };  
 ```  
-buat sebuah direktori `mkdir /etc/bind/sunnygo` dan Lakukan konfigurasi pada file `/etc/bind/sunnygo/mecha.franky.t02.com`
+buat sebuah direktori `mkdir /etc/bind/sunnygo` dan Lakukan konfigurasi pada file `/etc/bind/sunnygo/mecha.franky.ti2.com`
 ```  
 $TTL    604800
-@       IN      SOA     mecha.franky.t02.com. root.mecha.franky.t02.com. (
+@       IN      SOA     mecha.franky.ti2.com. root.mecha.franky.ti2.com. (
                         2021100401      ; Serial
                         604800         ; Refresh
                         86400         ; Retry
                         2419200         ; Expire
                         604800 )       ; Negative Cache TTL
 ;
-@               IN      NS      mecha.franky.t02.com.
+@               IN      NS      mecha.franky.ti2.com.
 @               IN      A       192.212.2.4       ;ip skypie
-www             IN      CNAME   mecha.franky.t02.com.
+www             IN      CNAME   mecha.franky.ti2.com.
 ```  
 Melakukan restart sevice bind9 dengan `service bind9 restart`
 #### TESTING  
-ping mecha.franky.t02.com
+ping mecha.franky.ti2.com
 (nanti masukin gambar)
 
-ping www.mecha.franky.t02.com
+ping www.mecha.franky.ti2.com
 (nanti masukin gambar)
 
 ### SOAL 7  
@@ -312,21 +313,21 @@ Untuk memperlancar komunikasi Luffy dan rekannya, dibuatkan subdomain melalui Wa
   
 ### Jawaban Soal 7   
 **Server Water7**  
-konfigurasi file `/etc/bind/sunnygo/mecha.franky.t02.com` dengan  
+konfigurasi file `/etc/bind/sunnygo/mecha.franky.ti2.com` dengan  
 ```
 $TTL    604800
-@       IN      SOA     mecha.franky.t02.com. root.mecha.franky.t02.com. (
+@       IN      SOA     mecha.franky.ti2.com. root.mecha.franky.ti2.com. (
                         2021100401      ; Serial
                         604800         ; Refresh
                         86400         ; Retry
                         2419200         ; Expire
                         604800 )       ; Negative Cache TTL
 ;
-@               IN      NS      mecha.franky.t02.com.
+@               IN      NS      mecha.franky.ti2.com.
 @               IN      A       192.212.2.4       ;ip skypie
-www             IN      CNAME   mecha.franky.t02.com.
+www             IN      CNAME   mecha.franky.ti2.com.
 general         IN      A       192.212.2.4       ;IP skypie
-www.general     IN      CNAME   mecha.franky.t02.com.
+www.general     IN      CNAME   mecha.franky.ti2.com.
 ```
 Melakukan restart sevice bind9 dengan `service bind9 restart`
   
@@ -354,31 +355,31 @@ apt-get install libapache2-mod-php7.0 -y
 service apache2 
 apt-get install ca-certificates openssl -y
 ```
-konfigurasi file `/etc/apache2/sites-available/franky.t02.com.conf`. DocumentRoot diletakkan  di /var/www/franky.t02.com. Tidak lupa kami menambah servername dan serveralias  
+konfigurasi file `/etc/apache2/sites-available/franky.ti2.com.conf`. DocumentRoot diletakkan  di /var/www/franky.ti2.com. Tidak lupa kami menambah servername dan serveralias  
 ```
 <VirtualHost *:80>
 
         ServerAdmin webmaster@localhost
-        DocumentRoot /var/www/franky.t02.com
-        ServerName franky.t02.com
-        ServerAlias www.franky.t02.com
+        DocumentRoot /var/www/franky.ti2.com
+        ServerName franky.ti2.com
+        ServerAlias www.franky.ti2.com
 
         ErrorLog \${APACHE_LOG_DIR}/error.log
         CustomLog \${APACHE_LOG_DIR}/access.log combined
 </VirtualHost>
 ```
-Lalu membuat sebuah direktori root untuk server franky.t02.com dan melakukan copy file kontennya
+Lalu membuat sebuah direktori root untuk server franky.ti2.com dan melakukan copy file kontennya
 ```
-mkdir /var/www/franky.t02.com
-cp -r /root/Praktikum-Modul-2-Jarkom/franky/. /var/www/franky.t02.com
+mkdir /var/www/franky.ti2.com
+cp -r /root/Praktikum-Modul-2-Jarkom/franky/. /var/www/franky.ti2.com
 service apache2 restart
 ```
   
 #### TESTING  
-lynx franky.t02.com
+lynx franky.ti2.com
 (nanti masukin gambar)
 
-lynx www.franky.t02.com
+lynx www.franky.ti2.com
 (nanti masukin gambar)
 
 ### SOAL 9
@@ -386,7 +387,7 @@ Setelah itu, Luffy juga membutuhkan agar url `www.franky.yyy.com/index.php/home`
 
 ### Jawaban Soal 9
 **Server Skypie**     
-konfigurasi file `/var/www/franky.t02.com/.htaccess` sebagai berikut:    
+konfigurasi file `/var/www/franky.ti2.com/.htaccess` sebagai berikut:    
 ```
 a2enmod rewrite
 service apache2 restart
@@ -397,18 +398,18 @@ RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule (.*) /index.php/\$1 [L]
 ```
 Inti dari konfigurasi tersebut adalah kita melakukan cek apakah request tersebut adalah ke file atau bukan dan ke direktori atau bukan jika hal tersebut terpenuhi aka kita membuat rule untuk melakukan direct ke /index.php/home. $1 merupakan parameter yang diinputkan pada url
-konfigurasi file `/etc/apache2/sites-available/franky.t02.com.conf` sebagai berikut  
+konfigurasi file `/etc/apache2/sites-available/franky.ti2.com.conf` sebagai berikut  
 ```
 <VirtualHost *:80>
         ServerAdmin webmaster@localhost
-        DocumentRoot /var/www/franky.t02.com
-        ServerName franky.t02.com
-        ServerAlias www.franky.t02.com
+        DocumentRoot /var/www/franky.ti2.com
+        ServerName franky.ti2.com
+        ServerAlias www.franky.ti2.com
 
         ErrorLog \${APACHE_LOG_DIR}/error.log
         CustomLog \${APACHE_LOG_DIR}/access.log combined
 
-        <Directory /var/www/franky.t02.com>
+        <Directory /var/www/franky.ti2.com>
                 Options +FollowSymLinks -Multiviews
                 AllowOverride All
         </Directory>
@@ -417,42 +418,42 @@ konfigurasi file `/etc/apache2/sites-available/franky.t02.com.conf` sebagai beri
 Melakukan restart service apache2 dengan `service apache2 restart`    
 
 #### TESTING
-lynx  www.franky.t02.com/home
+lynx  www.franky.ti2.com/home
 (nanti masukin gambar)
 ### SOAL 10
 Setelah itu, pada subdomain `www.super.franky.yyy.com`, Luffy membutuhkan penyimpanan aset yang memiliki DocumentRoot pada `/var/www/super.franky.yyy.com`
 
 ### Jawaban Soal 10
 **Server Skypie**    
-konfigurasi file `/etc/apache2/sites-available/super.franky.t02.com.conf` sebagai berikut  
+konfigurasi file `/etc/apache2/sites-available/super.franky.ti2.com.conf` sebagai berikut  
 ```
 <VirtualHost *:80>
 
         ServerAdmin webmaster@localhost
-        DocumentRoot /var/www/super.franky.t02.com
-        ServerName super.franky.t02.com
-        ServerAlias www.super.franky.t02.com
+        DocumentRoot /var/www/super.franky.ti2.com
+        ServerName super.franky.ti2.com
+        ServerAlias www.super.franky.ti2.com
 
         ErrorLog \${APACHE_LOG_DIR}/error.log
         CustomLog \${APACHE_LOG_DIR}/access.log combined
 
-        <Directory /var/www/franky.t02.com>
+        <Directory /var/www/franky.ti2.com>
                 Options +FollowSymLinks -Multiviews
                 AllowOverride All
         </Directory>
 </VirtualHost>
 ```
-Lalu aktifkan virtualhost dengan a2ensite, membuat direktori untuk documentroot di /var/www/super.franky.t02.com dan jangan lupa untuk melakukan copy content ke documentroot dengan cara
+Lalu aktifkan virtualhost dengan a2ensite, membuat direktori untuk documentroot di /var/www/super.franky.ti2.com dan jangan lupa untuk melakukan copy content ke documentroot dengan cara
 ```
-a2ensite super.franky.t02.com
-mkdir /var/www/super.franky.t02.com
-cp -r /root/Praktikum-Modul-2-Jarkom/super.franky/. /var/www/super.franky.t02.com
+a2ensite super.franky.ti2.com
+mkdir /var/www/super.franky.ti2.com
+cp -r /root/Praktikum-Modul-2-Jarkom/super.franky/. /var/www/super.franky.ti2.com
 service apache2 restart
 ```
-konfigurasi file `/var/www/super.franky.t02.com/index.php` dengan `echo "<?php echo 'yes nomor 10' ?>"`    
+konfigurasi file `/var/www/super.franky.ti2.com/index.php` dengan `echo "<?php echo 'yes nomor 10' ?>"`    
 
 #### TESTING
-lynx  www.super.franky.t02.com .Untuk membuktikan kita membuat sebuah file index.php didalamnya
+lynx  www.super.franky.ti2.com .Untuk membuktikan kita membuat sebuah file index.php didalamnya
 (nanti masukin gambar)
 
 ### SOAL 11
@@ -460,24 +461,24 @@ Akan tetapi, pada folder `/public`, Luffy ingin hanya dapat melakukan directory 
 
 ### Jawaban Soal 11
 **Server Skypie**    
-konfigurasi file `/etc/apache2/sites-available/super.franky.t02.com.conf` menambahkan Options +Indexes ke direktori yang ingin ke directory list dengan  
+konfigurasi file `/etc/apache2/sites-available/super.franky.ti2.com.conf` menambahkan Options +Indexes ke direktori yang ingin ke directory list dengan  
 ```
 
 <VirtualHost *:80>
 
         ServerAdmin webmaster@localhost
-        DocumentRoot /var/www/super.franky.t02.com
-        ServerName super.franky.t02.com
-        ServerAlias www.super.franky.t02.com
+        DocumentRoot /var/www/super.franky.ti2.com
+        ServerName super.franky.ti2.com
+        ServerAlias www.super.franky.ti2.com
 
-        <Directory /var/www/super.franky.t02.com/public>
+        <Directory /var/www/super.franky.ti2.com/public>
                 Options +Indexes
         </Directory>
 
         ErrorLog \${APACHE_LOG_DIR}/error.log
         CustomLog \${APACHE_LOG_DIR}/access.log combined
 
-        <Directory /var/www/franky.t02.com>
+        <Directory /var/www/franky.ti2.com>
                 Options +FollowSymLinks -Multiviews
                 AllowOverride All
         </Directory>
@@ -487,7 +488,7 @@ konfigurasi file `/etc/apache2/sites-available/super.franky.t02.com.conf` menamb
 Melakukan restart service apache2 dengan `service apache2 restart`    
 
 #### TESTING
-lynx  www.super.franky.t02.com/public
+lynx  www.super.franky.ti2.com/public
 (nanti masukin gambar)
 
 ### SOAL 12
@@ -495,14 +496,14 @@ Tidak hanya itu, Luffy juga menyiapkan error file `404.html` pada folder `/error
 
 ### Jawaban Soal 12
 **Server Skypie**    
-konfigurasi file `/etc/apache2/sites-available/super.franky.t02.com.conf` dan menambahkan konfigurasi ErrorDocumentuntuk untuk setiap error yang ada dan diarahkan ke file /error/404.html dengan  
+konfigurasi file `/etc/apache2/sites-available/super.franky.ti2.com.conf` dan menambahkan konfigurasi ErrorDocumentuntuk untuk setiap error yang ada dan diarahkan ke file /error/404.html dengan  
 ```
 
 <VirtualHost *:80>
         ServerAdmin webmaster@localhost
-        DocumentRoot /var/www/super.franky.t02.com
-        ServerName super.franky.t02.com
-        ServerAlias www.super.franky.t02.com
+        DocumentRoot /var/www/super.franky.ti2.com
+        ServerName super.franky.ti2.com
+        ServerAlias www.super.franky.ti2.com
 
         ErrorDocument 404 /error/404.html
         ErrorDocument 500 /error/404.html
@@ -510,14 +511,14 @@ konfigurasi file `/etc/apache2/sites-available/super.franky.t02.com.conf` dan me
         ErrorDocument 503 /error/404.html
         ErrorDocument 504 /error/404.html
 
-        <Directory /var/www/super.franky.t02.com/public>
+        <Directory /var/www/super.franky.ti2.com/public>
                 Options +Indexes
         </Directory>
 
         ErrorLog \${APACHE_LOG_DIR}/error.log
         CustomLog \${APACHE_LOG_DIR}/access.log combined
 
-        <Directory /var/www/franky.t02.com>
+        <Directory /var/www/franky.ti2.com>
                 Options +FollowSymLinks -Multiviews
                 AllowOverride All
         </Directory>
@@ -527,7 +528,7 @@ konfigurasi file `/etc/apache2/sites-available/super.franky.t02.com.conf` dan me
 Melakukan restart service apache2 dengan `service apache2 restart`   
 
 #### TESTING
-lynx  www.super.franky.t02.com/HAHAHA
+lynx  www.super.franky.ti2.com/HAHAHA
 (nanti masukin gambar)
 
 ### SOAL 13
@@ -535,14 +536,14 @@ Luffy juga meminta Nami untuk dibuatkan konfigurasi virtual host. Virtual host i
 
 ### Jawaban Soal 13
 **Server Skypie**    
-konfigurasi file `/etc/apache2/sites-available/super.franky.t02.com.conf` menambahkan konfigurasi Alias dengan  
+konfigurasi file `/etc/apache2/sites-available/super.franky.ti2.com.conf` menambahkan konfigurasi Alias dengan  
 ```
 <VirtualHost *:80>
 
         ServerAdmin webmaster@localhost
-        DocumentRoot /var/www/super.franky.t02.com
-        ServerName super.franky.t02.com
-        ServerAlias www.super.franky.t02.com
+        DocumentRoot /var/www/super.franky.ti2.com
+        ServerName super.franky.ti2.com
+        ServerAlias www.super.franky.ti2.com
 
         ErrorDocument 404 /error/404.html
         ErrorDocument 500 /error/404.html
@@ -550,17 +551,17 @@ konfigurasi file `/etc/apache2/sites-available/super.franky.t02.com.conf` menamb
         ErrorDocument 503 /error/404.html
         ErrorDocument 504 /error/404.html
 
-        <Directory /var/www/super.franky.t02.com/public>
+        <Directory /var/www/super.franky.ti2.com/public>
                 Options +Indexes
         </Directory>
 
-        Alias \"/js\" \"/var/www/super.franky.t02.com/public/js\"
+        Alias \"/js\" \"/var/www/super.franky.ti2.com/public/js\"
 
 
         ErrorLog \${APACHE_LOG_DIR}/error.log
         CustomLog \${APACHE_LOG_DIR}/access.log combined
 
-        <Directory /var/www/franky.t02.com>
+        <Directory /var/www/franky.ti2.com>
                 Options +FollowSymLinks -Multiviews
                 AllowOverride All
         </Directory>
@@ -569,7 +570,7 @@ konfigurasi file `/etc/apache2/sites-available/super.franky.t02.com.conf` menamb
 Melakukan restart service apache2 dengan `service apache2 restart`   
 
 #### TESTING    
-lynx  www.super.franky.t02.com/js 
+lynx  www.super.franky.ti2.com/js 
 (nanti masukin gambar)
 
 ### SOAL 14
@@ -577,14 +578,14 @@ Dan Luffy meminta untuk web `www.general.mecha.franky.yyy.com` hanya bisa diakse
 
 ### Jawaban Soal 14
 **Server Skypie**    
-konfigurasi file `/etc/apache2/sites-available/general.mecha.franky.t02.com.conf` disini menambahkan CirtualHost baru yang berada pada port 15000 dan 15500 dengan  
+konfigurasi file `/etc/apache2/sites-available/general.mecha.franky.ti2.com.conf` disini menambahkan CirtualHost baru yang berada pada port 15000 dan 15500 dengan  
 ```
 <VirtualHost *:15000>
 
         ServerAdmin webmaster@localhost
-        DocumentRoot /var/www/general.mecha.franky.t02.com
-        ServerName general.mecha.franky.t02.com
-        ServerAlias www.general.mecha.franky.t02.com
+        DocumentRoot /var/www/general.mecha.franky.ti2.com
+        ServerName general.mecha.franky.ti2.com
+        ServerAlias www.general.mecha.franky.ti2.com
 
 
         ErrorLog \${APACHE_LOG_DIR}/error.log
@@ -592,9 +593,9 @@ konfigurasi file `/etc/apache2/sites-available/general.mecha.franky.t02.com.conf
 </VirtualHost>
 <VirtualHost *:15500>        
         ServerAdmin webmaster@localhost
-        DocumentRoot /var/www/general.mecha.franky.t02.com
-        ServerName general.mecha.franky.t02.com
-        ServerAlias www.general.mecha.franky.t02.com
+        DocumentRoot /var/www/general.mecha.franky.ti2.com
+        ServerName general.mecha.franky.ti2.com
+        ServerAlias www.general.mecha.franky.ti2.com
         
 
         ErrorLog \${APACHE_LOG_DIR}/error.log
@@ -603,12 +604,12 @@ konfigurasi file `/etc/apache2/sites-available/general.mecha.franky.t02.com.conf
 ```     
 Lalu lakukan
 ```
-a2ensite general.mecha.franky.t02.com
+a2ensite general.mecha.franky.ti2.com
 service apache2 restart
-mkdir /var/www/general.mecha.franky.t02.com
-cp -r /root/Praktikum-Modul-2-Jarkom/general.mecha.franky/. /var/www/general.mecha.franky.t02.com/
+mkdir /var/www/general.mecha.franky.ti2.com
+cp -r /root/Praktikum-Modul-2-Jarkom/general.mecha.franky/. /var/www/general.mecha.franky.ti2.com/
 ```
-konfigurasi file `/var/www/general.mecha.franky.t02.com/index.php` sebagai berikut     
+konfigurasi file `/var/www/general.mecha.franky.ti2.com/index.php` sebagai berikut     
 ```
 <?php
     echo 'selamat 14';
@@ -634,9 +635,9 @@ Listen 15500
 Melakukan restart service apache2 dengan `service apache2 restart`   
 
 #### TESTING   
-lynx  general.mecha.franky.t02.com:15000
+lynx  general.mecha.franky.ti2.com:15000
 
-lynx  general.mecha.franky.t02.com:15500
+lynx  general.mecha.franky.ti2.com:15500
 (nanti masukin gambar)
 ### SOAL 15
 dengan authentikasi username luffy dan password onepiece dan file di `/var/www/general.mecha.franky.yyy`
@@ -644,16 +645,16 @@ dengan authentikasi username luffy dan password onepiece dan file di `/var/www/g
 ### Jawaban Soal 15   
 **Server Skypie**     
 Jalankan Command `htpasswd -c -b /etc/apache2/.htpasswd luffy onepiece`    
-konfigurasi file `/etc/apache2/sites-available/general.mecha.franky.t02.com.conf` sebagai berikut     
+konfigurasi file `/etc/apache2/sites-available/general.mecha.franky.ti2.com.conf` sebagai berikut     
 ```
 <VirtualHost *:15000>
 
         ServerAdmin webmaster@localhost
-        DocumentRoot /var/www/general.mecha.franky.t02.com
-        ServerName general.mecha.franky.t02.com
-        ServerAlias www.general.mecha.franky.t02.com
+        DocumentRoot /var/www/general.mecha.franky.ti2.com
+        ServerName general.mecha.franky.ti2.com
+        ServerAlias www.general.mecha.franky.ti2.com
 
-        <Directory \"/var/www/general.mecha.franky.t02.com\">
+        <Directory \"/var/www/general.mecha.franky.ti2.com\">
                 AuthType Basic
                 AuthName \"Restricted Content\"
                 AuthUserFile /etc/apache2/.htpasswd
@@ -665,11 +666,11 @@ konfigurasi file `/etc/apache2/sites-available/general.mecha.franky.t02.com.conf
 </VirtualHost>
 <VirtualHost *:15500>        
         ServerAdmin webmaster@localhost
-        DocumentRoot /var/www/general.mecha.franky.t02.com
-        ServerName general.mecha.franky.t02.com
-        ServerAlias www.general.mecha.franky.t02.com
+        DocumentRoot /var/www/general.mecha.franky.ti2.com
+        ServerName general.mecha.franky.ti2.com
+        ServerAlias www.general.mecha.franky.ti2.com
         
-        <Directory \"/var/www/general.mecha.franky.t02.com\">
+        <Directory \"/var/www/general.mecha.franky.ti2.com\">
                 AuthType Basic
                 AuthName \"Restricted Content\"
                 AuthUserFile /etc/apache2/.htpasswd
@@ -697,8 +698,8 @@ konfigurasi file `/etc/apache2/sites-available/000-default.conf` sebagai berikut
         DocumentRoot /var/www/html
 
         RewriteEngine On
-        RewriteCond %{HTTP_HOST} !^franky.t02.com$
-        RewriteRule /.* http://franky.t02.com/ [R]
+        RewriteCond %{HTTP_HOST} !^franky.ti2.com$
+        RewriteRule /.* http://franky.ti2.com/ [R]
 
         ErrorLog \${APACHE_LOG_DIR}/error.log
         CustomLog \${APACHE_LOG_DIR}/access.log combined
@@ -717,24 +718,24 @@ Dikarenakan Franky juga ingin mengajak temannya untuk dapat menghubunginya melal
 
 ### Jawaban Soal 17     
 **Server Skypie**   
-konfigurasi file `/var/www/super.franky.t02.com/.htaccess` dengan     
+konfigurasi file `/var/www/super.franky.ti2.com/.htaccess` dengan     
 ```
 echo "
 RewriteEngine On
 RewriteCond %{REQUEST_URI} ^/public/images/(.*)franky(.*)
 RewriteCond %{REQUEST_URI} !/public/images/franky.png
-RewriteRule /.* http://super.franky.t02.com/public/images/franky.png [L]
+RewriteRule /.* http://super.franky.ti2.com/public/images/franky.png [L]
 "
 ```    
-konfigurasi file `/etc/apache2/sites-available/super.franky.t02.com.conf` dengan     
+konfigurasi file `/etc/apache2/sites-available/super.franky.ti2.com.conf` dengan     
 ```
 echo "
 <VirtualHost *:80>
 
         ServerAdmin webmaster@localhost
-        DocumentRoot /var/www/super.franky.t02.com
-        ServerName super.franky.t02.com
-        ServerAlias www.super.franky.t02.com
+        DocumentRoot /var/www/super.franky.ti2.com
+        ServerName super.franky.ti2.com
+        ServerAlias www.super.franky.ti2.com
 
         ErrorDocument 404 /error/404.html
         ErrorDocument 500 /error/404.html
@@ -742,20 +743,20 @@ echo "
         ErrorDocument 503 /error/404.html
         ErrorDocument 504 /error/404.html
 
-        <Directory /var/www/super.franky.t02.com/public>
+        <Directory /var/www/super.franky.ti2.com/public>
                 Options +Indexes
         </Directory>
 
-        Alias \"/js\" \"/var/www/super.franky.t02.com/public/js\"
+        Alias \"/js\" \"/var/www/super.franky.ti2.com/public/js\"
 
-        <Directory /var/www/super.franky.t02.com>
+        <Directory /var/www/super.franky.ti2.com>
                 Options +FollowSymLinks -Multiviews
                 AllowOverride All
         </Directory>
         ErrorLog \${APACHE_LOG_DIR}/error.log
         CustomLog \${APACHE_LOG_DIR}/access.log combined
 
-        <Directory /var/www/franky.t02.com>
+        <Directory /var/www/franky.ti2.com>
                 Options +FollowSymLinks -Multiviews
                 AllowOverride All
         </Directory>
@@ -765,7 +766,7 @@ echo "
 Melakukan restart service apache2 dengan `service apache2 restart`  
 
 #### TESTING     
-lynx super.franky.t02.com/public/images/HAHAfrankyYUHU
+lynx super.franky.ti2.com/public/images/HAHAfrankyYUHU
 (nanti masukin gambar)
 
 ## Kendala
