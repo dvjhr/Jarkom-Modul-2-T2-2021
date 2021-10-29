@@ -22,6 +22,7 @@ EniesLobby akan dijadikan sebagai DNS Master, Water7 akan dijadikan DNS Slave, d
 ### Jawaban Soal 1      
 Kami membuat topologi seperti berikut:       
 (nanti masukin gambar)
+
 Kemudian mengkonfigurasi setiap node:       
        
 **Foosha sebagai Router**         
